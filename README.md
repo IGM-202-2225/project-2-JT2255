@@ -1,91 +1,84 @@
-# Project _NAME_
-
-[Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet)
-
-_REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
+# Project Fish Sim
 
 ### Student Info
 
--   Name: _YOUR NAME_
--   Section: _##_
+-   Name: Joe Trovato
+-   Section: 02
 
 ## Simulation Design
 
-_A brief explanation of your simulation._
+Simulation of a fish tank with 2 different types of fish, both seek food, but one fish also flees from the other. Player able to spawn in fish food in order to feed the fish or else they will die.
 
 ### Controls
 
--   _List all of the actions the player can have in your simulation_
-    -   _Include how to preform each action ( keyboard, mouse, UI Input )_
-    -   _Include what impact an action has in the simulation ( if is could be unclear )_
+-   Click to drop fish food
 
-## _Agent 1 Name_
+## Betta Fish
 
-_A brief explanation of this agent._
+This fish primarily seeks food, while also making other fish types flee away from it.
 
-### _State 1 Name_
+### Healthy
 
-**Objective:** _A brief explanation of this state's objective._
+**Objective:** Seeks other fish
 
 #### Steering Behaviors
 
-- _List all behaviors used by this state_
-   - _If behavior has input data list it here_
-   - _eg, Flee - nearest Agent2_
-- Obstacles - _List all obstacle types this state avoids_
-- Seperation - _List all agents this state seperates from_
+- Seek
+   - Seeks nearest fish food
+   - Seeks other fish
+- Obstacles - Avoids coral in the fish tank
+- Seperation -
    
 #### State Transistions
 
-- _List all the ways this agent can transition to this state_
-   - _eg, When this agent gets within range of Agent2_
-   - _eg, When this agent has reached target of State2_
+- After eating food, fish will become Healthy
    
-### _State 2 Name_
+### Hungry
 
-**Objective:** _A brief explanation of this state's objective._
+**Objective:** Seek fish food
 
 #### Steering Behaviors
 
-- _List all behaviors used by this state_
-- Obstacles - _List all obstacle types this state avoids_
-- Seperation - _List all agents this state seperates from_
+- Seek
+    - Seeks nearest fish food
+- Obstacles - Avoids coral and other fish
+- Seperation - 
    
 #### State Transistions
 
-- _List all the ways this agent can transition to this state_
+- When this fish gets in range of another fish, it will attack it and become Hungry
 
-## _Agent 2 Name_
+## Goldfish
 
-_A brief explanation of this agent._
+This fish tries to stay safe and eat food
 
-### _State 1 Name_
+### Healthy
 
-**Objective:** _A brief explanation of this state's objective._
+**Objective:** In this state, this fish will flee from all other Betta Fish
 
 #### Steering Behaviors
 
-- _List all behaviors used by this state_
-- Obstacles - _List all obstacle types this state avoids_
-- Seperation - _List all agents this state seperates from_
+- Flee
+- Obstacles - Coral and Betta Fish
+- Seperation - 
    
 #### State Transistions
 
-- _List all the ways this agent can transition to this state_
+- After eating food, goldfish will become healthy
    
-### _State 2 Name_
+### Hurt
 
-**Objective:** _A brief explanation of this state's objective._
+**Objective:** Try to find fish food in order to survive
 
 #### Steering Behaviors
 
-- _List all behaviors used by this state_
-- Obstacles - _List all obstacle types this state avoids_
-- Seperation - _List all agents this state seperates from_
+- Seek
+- Obstacles - Coral
+- Seperation - 
    
 #### State Transistions
 
-- _List all the ways this agent can transition to this state_
+- When attacked by another Betta Fish, the goldfish will become hurt
 
 ## Sources
 
