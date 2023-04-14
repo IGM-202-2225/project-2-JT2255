@@ -59,6 +59,7 @@ This fish tries to stay safe and eat food
 #### Steering Behaviors
 
 - Flee
+   - Flees from betta fish
 - Obstacles - Coral and Betta Fish
 - Seperation - 
    
@@ -73,6 +74,7 @@ This fish tries to stay safe and eat food
 #### Steering Behaviors
 
 - Seek
+   - Seek fish food
 - Obstacles - Coral
 - Seperation - 
    
@@ -87,9 +89,7 @@ This fish tries to stay safe and eat food
 
 ## Make it Your Own
 
-- _List out what you added to your game to make it different for you_
-- _If you will add more agents or states make sure to list here and add it to the documention above_
-- _If you will add your own assets make sure to list it here and add it to the Sources section
+- Will be making all assets for game myself including food and fish sprites
 
 ## Known Issues
 
