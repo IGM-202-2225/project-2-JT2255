@@ -27,7 +27,7 @@ This fish primarily seeks food, while also making other fish types flee away fro
    - Seeks nearest fish food
    - Seeks other fish
 - Obstacles - Avoids coral in the fish tank
-- Seperation -
+- Seperation - Seperates from betta fish
    
 #### State Transistions
 
@@ -42,7 +42,7 @@ This fish primarily seeks food, while also making other fish types flee away fro
 - Seek
     - Seeks nearest fish food
 - Obstacles - Avoids coral and other fish
-- Seperation - 
+- Seperation - Seperates from betta fish
    
 #### State Transistions
 
@@ -61,7 +61,7 @@ This fish tries to stay safe and eat food
 - Flee
    - Flees from betta fish
 - Obstacles - Coral and Betta Fish
-- Seperation - 
+- Seperation - Seperates from goldfish
    
 #### State Transistions
 
@@ -76,7 +76,7 @@ This fish tries to stay safe and eat food
 - Seek
    - Seek fish food
 - Obstacles - Coral
-- Seperation - 
+- Seperation - Seperates from goldfish
    
 #### State Transistions
 
