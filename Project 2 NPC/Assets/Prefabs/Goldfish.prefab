@@ -68,9 +68,10 @@ MonoBehaviour:
   physicsObject: {fileID: 6847000967750365950}
   maxSpeed: 3
   maxForce: 5
-  maxWanderAngle: 80
-  maxWanderChangePerSecond: 40
+  maxWanderAngle: 100.44
+  maxWanderChangePerSecond: 58.9
   personalSpace: 1
+  visionRange: 2
   spriteRenderer: {fileID: 3611892936022245504}
   healthySprite: {fileID: 21300000, guid: d2a411d656848f7429f5619825a40f18, type: 3}
   hurtSprite: {fileID: 21300000, guid: 9688af034d60a3c4484af579d0357cd3, type: 3}

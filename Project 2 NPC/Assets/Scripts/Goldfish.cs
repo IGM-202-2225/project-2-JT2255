@@ -82,6 +82,7 @@ public class Goldfish : Agent
                 }
         }
 
+        AvoidAllObstacles();
         StayInBounds(4);
     }
 

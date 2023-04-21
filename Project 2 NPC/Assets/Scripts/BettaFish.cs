@@ -36,7 +36,7 @@ public class BettaFish : Agent
                     }
                     else
                     {
-                        if (distToFish < Mathf.Pow(3f, 2))
+                        if (distToFish < Mathf.Pow(3f, 2) && targetFish.CurrentState == Goldfish.State.Healthy)
                         {
                             Seek(targetFish.physicsObject.Position);
                         }
@@ -91,6 +91,7 @@ public class BettaFish : Agent
                 }
         }
 
+        AvoidAllObstacles();
         StayInBounds(4);
     }
 

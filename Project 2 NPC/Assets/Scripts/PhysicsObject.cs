@@ -17,7 +17,7 @@ public class PhysicsObject : MonoBehaviour
     public Vector3 Velocity => velocity;
     public Vector3 Direction => direction;
     public Vector3 Position => transform.position;
-
+    public Vector3 Right => transform.right;
 
     [SerializeField]
     float mass = 1f;
