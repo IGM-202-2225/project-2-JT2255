@@ -27,7 +27,7 @@ public class PhysicsObject : MonoBehaviour
 
     public Vector3 mousePos;
     public float radius = 1f;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,7 +62,7 @@ public class PhysicsObject : MonoBehaviour
         {
             CheckForBounce();
         }
-        
+
         transform.position = position;
 
         acceleration = Vector3.zero;
@@ -91,22 +91,22 @@ public class PhysicsObject : MonoBehaviour
 
     void CheckForBounce()
     {
-          if (position.x > AgentManager.Instance.maxPosition.x)
-          {
-              velocity.x *= -1f;
-          }
-          else if (position.x < AgentManager.Instance.minPosition.x)
-          {
-              velocity.x *= -1f;
-          }
+        if (position.x > AgentManager.Instance.maxPosition.x)
+        {
+            velocity.x *= -1f;
+        }
+        else if (position.x < AgentManager.Instance.minPosition.x)
+        {
+            velocity.x *= -1f;
+        }
 
-          if (position.y > AgentManager.Instance.maxPosition.y)
-          {
-              velocity.y *= -1f;
-          }
-          else if (position.y < AgentManager.Instance.minPosition.y)
-          {
-              velocity.y *= -1f;
-          }
+        if (position.y > AgentManager.Instance.maxPosition.y)
+        {
+            velocity.y *= -1f;
+        }
+        else if (position.y < AgentManager.Instance.minPosition.y)
+        {
+            velocity.y *= -1f;
+        }
     }
 }

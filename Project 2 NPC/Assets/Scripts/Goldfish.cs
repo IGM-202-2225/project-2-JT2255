@@ -15,72 +15,101 @@ public class Goldfish : Agent
     public SpriteRenderer spriteRenderer;
     public Sprite healthySprite;
     public Sprite hurtSprite;
-    
+
     protected override void CalculateSteeringForces()
     {
         BettaFish targetFish = AgentManager.Instance.GetClosestBettaFish(this);
+        GameObject targetFood = AgentManager.Instance.GetClosestFood(this);
 
         switch (currentState)
         {
             case State.Healthy:
-            {
-                float distToFish = Vector3.SqrMagnitude(physicsObject.Position - targetFish.physicsObject.Position);
-                
-                if (IsTouchingBettaFish(targetFish))
                 {
-                    StateTransition(State.Hurt);
-                }
-                else
-                {
-                    if (distToFish < Mathf.Pow(3f, 2))
+                    float distToFish = Vector3.SqrMagnitude(physicsObject.Position - targetFish.physicsObject.Position);
+
+                    if (IsTouchingBettaFish(targetFish) && targetFish.CurrentState == BettaFish.State.Healthy)
                     {
-                        Flee(targetFish.physicsObject.Position, 3);
+                        StateTransition(State.Hurt);
+                    }
+                    else
+                    {
+                        if (distToFish < Mathf.Pow(3f, 2))
+                        {
+                            Flee(targetFish.physicsObject.Position, 3);
+                        }
+                        else
+                        {
+                            Wander();
+                        }
+
+                        Seperate(AgentManager.Instance.goldfishes);
+                    }
+
+                    break;
+                }
+            case State.Hurt:
+                {
+                    if (AgentManager.Instance.fishFoodList.Count > 0)
+                    {
+                        float distToFood = Vector3.SqrMagnitude(physicsObject.Position - targetFood.transform.position);
+
+                        if (IsTouchingFood(targetFood))
+                        {
+                            AgentManager.Instance.fishFoodList.Remove(targetFood);
+                            Destroy(targetFood);
+                            StateTransition(State.Healthy);
+                        }
+                        else
+                        {
+                            if (distToFood < Mathf.Pow(4f, 2))
+                            {
+                                Seek(targetFood.transform.position, 3);
+                            }
+                            else
+                            {
+                                Wander();
+                            }
+
+                            Seperate(AgentManager.Instance.goldfishes);
+                        }
                     }
                     else
                     {
                         Wander();
                     }
-                    
-                    Seperate(AgentManager.Instance.goldfishes);
+
+                    break;
                 }
-                break;
-            }
-            case State.Hurt:
-            {
-                Wander();
-                Seperate(AgentManager.Instance.goldfishes);
-                //seek fish food here
-                //switch to healthy after eating food
-                break;
-            }
         }
-        
+
         StayInBounds(4);
     }
 
-    private void StateTransition(State newState)
+    public void StateTransition(State newState)
     {
         currentState = newState;
 
         switch (newState)
         {
             case State.Healthy:
-            {
-                spriteRenderer.sprite = healthySprite;
-                break;
-            }
+                {
+                    spriteRenderer.sprite = healthySprite;
+                    break;
+                }
             case State.Hurt:
-            {
-                spriteRenderer.sprite = hurtSprite;
-                break;
-            }
+                {
+                    spriteRenderer.sprite = hurtSprite;
+                    break;
+                }
         }
     }
 
-    private bool IsTouchingFood()
+    private bool IsTouchingFood(GameObject food)
     {
-        //check for touching food here
-        return true;
+        float sqrDistance = Vector3.SqrMagnitude(physicsObject.Position - food.transform.position);
+        float sqrRadii = Mathf.Pow(physicsObject.radius, 2) + Mathf.Pow(.5f, 2);
+
+        return sqrDistance < sqrRadii;
     }
 
     private bool IsTouchingBettaFish(BettaFish fish)

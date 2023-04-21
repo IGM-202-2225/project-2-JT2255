@@ -239,12 +239,15 @@ MonoBehaviour:
   tagPrefab: {fileID: 3215437107597187570, guid: 4268a273ed27daa45b2919c6f3502ecf, type: 3}
   bettaPrefab: {fileID: 4435504425678322451, guid: 4d2d815bb59a6b7419ac1ab40da3478f, type: 3}
   goldPrefab: {fileID: 2906312863663802275, guid: 45d548c2b5655474c980367625957157, type: 3}
-  numGoldfish: 10
-  numBettaFish: 10
+  fishFoodPrefab: {fileID: 3260509733495860455, guid: 274a197879f4a7d4daf5fe31a93082b0, type: 3}
+  numFishFood: 10
+  numGoldfish: 4
+  numBettaFish: 2
   numTagPlayers: 0
   tagPlayers: []
   bettaFishes: []
   goldfishes: []
+  fishFoodList: []
   maxPosition: {x: 1, y: 1}
   minPosition: {x: -1, y: -1}
   edgePadding: 1

@@ -48,11 +48,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: 1
   useGravity: 0
-  useFriction: 0
+  useFriction: 1
   useBounce: 0
   frictionCoeff: 0
   mousePos: {x: 0, y: 0, z: 0}
-  radius: 1
+  radius: 0.5
 --- !u!114 &4435504425678322451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,14 +66,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   physicsObject: {fileID: 6164777444979546309}
-  maxSpeed: 3
+  maxSpeed: 4
   maxForce: 5
-  maxWanderAngle: 45
-  maxWanderChangePerSecond: 10
+  maxWanderAngle: 80
+  maxWanderChangePerSecond: 40
   personalSpace: 1
   spriteRenderer: {fileID: 2046155712408520635}
   healthySprite: {fileID: 21300000, guid: 7925cec9e681d7e40bc7c6ceee43cb78, type: 3}
-  hungrySprite: {fileID: 21300000, guid: 7925cec9e681d7e40bc7c6ceee43cb78, type: 3}
+  hungrySprite: {fileID: 21300000, guid: 607c2626ab1035d428f05f7ec2c195f3, type: 3}
 --- !u!1 &7245287020214967500
 GameObject:
   m_ObjectHideFlags: 0

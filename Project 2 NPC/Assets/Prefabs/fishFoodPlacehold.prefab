@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2521389828875930487
+--- !u!1 &3260509733495860455
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,73 +8,31 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 493330292669543324}
-  - component: {fileID: 6847000967750365950}
-  - component: {fileID: 2906312863663802275}
+  - component: {fileID: 7660294799490563111}
   m_Layer: 0
-  m_Name: Goldfish
+  m_Name: fishFoodPlacehold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &493330292669543324
+--- !u!4 &7660294799490563111
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2521389828875930487}
+  m_GameObject: {fileID: 3260509733495860455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 626567359557903451}
+  - {fileID: 6543059804070025283}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6847000967750365950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2521389828875930487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54c10b078337e1c4ea18b26b29709a00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mass: 1
-  useGravity: 0
-  useFriction: 0
-  useBounce: 0
-  frictionCoeff: 0
-  mousePos: {x: 0, y: 0, z: 0}
-  radius: 0.5
---- !u!114 &2906312863663802275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2521389828875930487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 028e7576ca864314499336084613c349, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  physicsObject: {fileID: 6847000967750365950}
-  maxSpeed: 3
-  maxForce: 5
-  maxWanderAngle: 80
-  maxWanderChangePerSecond: 40
-  personalSpace: 1
-  spriteRenderer: {fileID: 3611892936022245504}
-  healthySprite: {fileID: 21300000, guid: d2a411d656848f7429f5619825a40f18, type: 3}
-  hurtSprite: {fileID: 21300000, guid: 9688af034d60a3c4484af579d0357cd3, type: 3}
---- !u!1 &4638025489653713579
+--- !u!1 &7981898654358430178
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -82,37 +40,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 626567359557903451}
-  - component: {fileID: 3611892936022245504}
+  - component: {fileID: 6543059804070025283}
+  - component: {fileID: 6921983506699125313}
   m_Layer: 0
-  m_Name: hud_p2
+  m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &626567359557903451
+--- !u!4 &6543059804070025283
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4638025489653713579}
+  m_GameObject: {fileID: 7981898654358430178}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 493330292669543324}
+  m_Father: {fileID: 7660294799490563111}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3611892936022245504
+--- !u!212 &6921983506699125313
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4638025489653713579}
+  m_GameObject: {fileID: 7981898654358430178}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -147,12 +105,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d2a411d656848f7429f5619825a40f18, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: 27ff0d07537c0f74abf3720aa2e0533d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.47, y: 0.47}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

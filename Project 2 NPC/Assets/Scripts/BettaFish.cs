@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BettaFish : Agent
@@ -13,48 +14,83 @@ public class BettaFish : Agent
     private State currentState = State.Healthy;
     public State CurrentState => currentState;
     public SpriteRenderer spriteRenderer;
+    public float healthTimer = 10f;
     public Sprite healthySprite;
     public Sprite hungrySprite;
-    
+
     protected override void CalculateSteeringForces()
     {
         Goldfish targetFish = AgentManager.Instance.GetClosestGoldfish(this);
-        
+        GameObject targetFood = AgentManager.Instance.GetClosestFood(this);
+
         switch (currentState)
         {
             case State.Healthy:
-            {
-                float distToFish = Vector3.SqrMagnitude(physicsObject.Position - targetFish.physicsObject.Position);
-                
-                if (IsTouchingGoldfish(targetFish))
                 {
-                    StateTransition(State.Hungry);
-                }
-                else
-                {
-                    if (distToFish < Mathf.Pow(3f, 2))
+                    float distToFish = Vector3.SqrMagnitude(physicsObject.Position - targetFish.physicsObject.Position);
+
+                    if (IsTouchingGoldfish(targetFish) && targetFish.CurrentState == Goldfish.State.Healthy)
                     {
-                        Seek(targetFish.physicsObject.Position);
+                        targetFish.StateTransition(Goldfish.State.Hurt);
+                        //StateTransition(State.Hungry);
+                    }
+                    else
+                    {
+                        if (distToFish < Mathf.Pow(3f, 2))
+                        {
+                            Seek(targetFish.physicsObject.Position);
+                        }
+                        else
+                        {
+                            Wander();
+                        }
+                    }
+
+                    healthTimer -= Time.deltaTime;
+
+                    if (healthTimer <= 0f)
+                    {
+                        StateTransition(State.Hungry);
+                    }
+
+                    Seperate(AgentManager.Instance.bettaFishes);
+                    break;
+                }
+            case State.Hungry:
+                {
+                    if (AgentManager.Instance.fishFoodList.Count > 0)
+                    {
+                        float distToFood = Vector3.SqrMagnitude(physicsObject.Position - targetFood.transform.position);
+
+                        if (IsTouchingFood(targetFood))
+                        {
+                            AgentManager.Instance.fishFoodList.Remove(targetFood);
+                            Destroy(targetFood);
+                            StateTransition(State.Healthy);
+                        }
+                        else
+                        {
+                            if (distToFood < Mathf.Pow(4f, 2))
+                            {
+                                Seek(targetFood.transform.position, 3);
+                            }
+                            else
+                            {
+                                Wander();
+                            }
+
+                            Seperate(AgentManager.Instance.bettaFishes);
+                        }
                     }
                     else
                     {
                         Wander();
                     }
+
+                    break;
                 }
-                
-                Seperate(AgentManager.Instance.bettaFishes);
-                break;
-            }
-            case State.Hungry:
-            {
-                Wander();
-                Seperate(AgentManager.Instance.bettaFishes);
-                //seek fish food here
-                //switch to healthy after touching food
-                break;
-            }
         }
-        
+
         StayInBounds(4);
     }
 
@@ -65,24 +101,27 @@ public class BettaFish : Agent
         switch (newState)
         {
             case State.Healthy:
-            {
-                spriteRenderer.sprite = healthySprite;
-                break;
-            }
+                {
+                    spriteRenderer.sprite = healthySprite;
+                    healthTimer = 10f;
+                    break;
+                }
             case State.Hungry:
-            {
-                spriteRenderer.sprite = hungrySprite;
-                break;
-            }
+                {
+                    spriteRenderer.sprite = hungrySprite;
+                    break;
+                }
         }
     }
 
-    private bool IsTouchingFood()
+    private bool IsTouchingFood(GameObject food)
     {
-        //check for touching food here
-        return true;
+        float sqrDistance = Vector3.SqrMagnitude(physicsObject.Position - food.transform.position);
+        float sqrRadii = Mathf.Pow(physicsObject.radius, 2) + Mathf.Pow(.5f, 2);
+
+        return sqrDistance < sqrRadii;
     }
-    
+
     private bool IsTouchingGoldfish(Goldfish fish)
     {
         float sqrDistance = Vector3.SqrMagnitude(physicsObject.Position - fish.physicsObject.Position);
