@@ -564,6 +564,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1943677215}
   - component: {fileID: 1943677214}
+  - component: {fileID: 1943677216}
   m_Layer: 0
   m_Name: AgentManager
   m_TagString: Untagged
@@ -585,8 +586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bettaPrefab: {fileID: 4435504425678322451, guid: 4d2d815bb59a6b7419ac1ab40da3478f, type: 3}
   goldPrefab: {fileID: 2906312863663802275, guid: 45d548c2b5655474c980367625957157, type: 3}
-  fishFoodPrefab: {fileID: 3260509733495860455, guid: 274a197879f4a7d4daf5fe31a93082b0, type: 3}
-  numFishFood: 10
+  fishFoodPrefab: {fileID: 6531995790283928607, guid: e4ddd91a74b543f4ebbfb9d961f16953, type: 3}
   numGoldfish: 4
   numBettaFish: 2
   numTagPlayers: 0
@@ -611,6 +611,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1943677216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943677213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: c0fff5d4bfa74b445824b7476ffd37fc, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 022b1893-96bd-4eaf-b9ae-f44188d7acad
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7ef0154c-6e4d-48ec-b07c-09146f7bd918
+    m_ActionName: Player/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1943677214}
+        m_TargetAssemblyTypeName: AgentManager, Assembly-CSharp
+        m_MethodName: OnPlayerClick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0355a979-0852-4a8b-92a0-4b4ba7e7bc3f
+    m_ActionName: Player/Fire[/Mouse/leftButton]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &7030966872728536512
 PrefabInstance:
   m_ObjectHideFlags: 0

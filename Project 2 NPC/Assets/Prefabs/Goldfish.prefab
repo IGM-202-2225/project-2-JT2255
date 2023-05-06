@@ -73,8 +73,8 @@ MonoBehaviour:
   personalSpace: 1
   visionRange: 2
   spriteRenderer: {fileID: 3611892936022245504}
-  healthySprite: {fileID: 21300000, guid: d2a411d656848f7429f5619825a40f18, type: 3}
-  hurtSprite: {fileID: 21300000, guid: 9688af034d60a3c4484af579d0357cd3, type: 3}
+  healthySprite: {fileID: 21300000, guid: beb0cc16d7ba7f94ea9da156d6b61482, type: 3}
+  hurtSprite: {fileID: 21300000, guid: d06eae7a06de5d54187adfd71cf6b049, type: 3}
 --- !u!1 &4638025489653713579
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d2a411d656848f7429f5619825a40f18, type: 3}
+  m_Sprite: {fileID: 21300000, guid: beb0cc16d7ba7f94ea9da156d6b61482, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

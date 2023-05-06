@@ -71,9 +71,11 @@ MonoBehaviour:
   maxWanderAngle: 80
   maxWanderChangePerSecond: 40
   personalSpace: 1
+  visionRange: 2
   spriteRenderer: {fileID: 2046155712408520635}
-  healthySprite: {fileID: 21300000, guid: 7925cec9e681d7e40bc7c6ceee43cb78, type: 3}
-  hungrySprite: {fileID: 21300000, guid: 607c2626ab1035d428f05f7ec2c195f3, type: 3}
+  healthTimer: 10
+  healthySprite: {fileID: 21300000, guid: ad6ee9031e918e04f8ca94a15680b666, type: 3}
+  hungrySprite: {fileID: 21300000, guid: e26593b9eed243547aab825f257cb199, type: 3}
 --- !u!1 &7245287020214967500
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,12 +149,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7925cec9e681d7e40bc7c6ceee43cb78, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ad6ee9031e918e04f8ca94a15680b666, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.47, y: 0.47}
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

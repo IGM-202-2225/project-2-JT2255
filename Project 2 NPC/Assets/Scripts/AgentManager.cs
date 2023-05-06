@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -11,7 +13,7 @@ public class AgentManager : MonoBehaviour
     public BettaFish bettaPrefab;
     public Goldfish goldPrefab;
     public GameObject fishFoodPrefab;
-    public int numFishFood = 10;
+    //public int numFishFood = 10;
     public int numGoldfish = 10;
     public int numBettaFish = 10;
     public int numTagPlayers = 10;
@@ -60,12 +62,24 @@ public class AgentManager : MonoBehaviour
             bettaFishes.Add(Spawn(bettaPrefab));
         }
 
-        for (int i = 0; i < numFishFood; i++)
-        {
-            fishFoodList.Add(Spawn(fishFoodPrefab));
-        }
+        // for (int i = 0; i < numFishFood; i++)
+        // {
+        //     fishFoodList.Add(Spawn(fishFoodPrefab));
+        // }
+
+        // Mouse mouse = Mouse.current;
+        //
+        // if (mouse.leftButton.wasPressedThisFrame)
+        // {
+        //     fishFoodList.Add(Spawn(fishFoodPrefab));
+        // }
     }
 
+    public void OnPlayerClick(InputAction.CallbackContext context)
+    {
+        fishFoodList.Add(Spawn(fishFoodPrefab));
+    }
+    
     private T Spawn<T>(T prefabToSpawn) where T : Agent
     {
         float xPos = Random.Range(minPosition.x, maxPosition.x);
